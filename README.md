@@ -11,25 +11,180 @@ La diferencia principal entre un struct (o registro) y un objeto (clase) radica 
 En cuanto al tipado y acceso a campos, tanto en C# como en Python se trabaja con tipado definido (explícito en C# y opcional en Python). Los campos se acceden directamente mediante el nombre del atributo, lo que permite leer o modificar los valores de forma sencilla, dependiendo de si la estructura es mutable o no.
 
 ### Actividades:
-* Declaración. Definir un struct o record que contenga: nombre, edad, promedio.
+* **Declaración.** Definir un struct o record que contenga: nombre, edad, promedio.
+```c#
+public record Estudiante(string Nombre, int Edad, double Promedio);
+```
 
+```python
+from dataclasses import dataclass
 
-* Inicialización
-Crear 3 instancias con datos ficticios en todos los lenguajes dados (Java, C#, JS, TS, Python, Kotlin, Dart, Go, C, C++, PHP).
+@dataclass
+class Estudiante:
+    nombre: str
+    edad: int
+    promedio: float
+```
 
+* **Inicialización.**
+Crear 3 instancias con datos ficticios en los lenguajes dados (C# y Python).
 
-* Recorrido
+```c#
+public record Estudiante(string Nombre, int Edad, double Promedio);
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var e1 = new Estudiante("Ana", 20, 4.5);
+        var e2 = new Estudiante("Luis", 22, 3.8);
+        var e3 = new Estudiante("Marta", 19, 4.2);
+
+        Console.WriteLine(e1);
+        Console.WriteLine(e2);
+        Console.WriteLine(e3);
+    }
+}
+```
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Estudiante:
+    nombre: str
+    edad: int
+    promedio: float
+
+# Crear las 3 instancias
+e1 = Estudiante("Ana", 20, 4.5)
+e2 = Estudiante("Luis", 22, 3.8)
+e3 = Estudiante("Marta", 19, 4.2)
+
+# Mostrar los datos
+print(e1)
+print(e2)
+print(e3)
+```
+
+* **Recorrido.**
 Guardar las instancias en un arreglo y recorrerlo mostrando los datos.
+```c#
+using System;
 
+public record Estudiante(string Nombre, int Edad, double Promedio);
 
-* Modificación
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear instancias
+        var e1 = new Estudiante("Ana", 20, 4.5);
+        var e2 = new Estudiante("Luis", 22, 3.8);
+        var e3 = new Estudiante("Marta", 19, 4.2);
+
+        // Guardar en un arreglo
+        Estudiante[] estudiantes = { e1, e2, e3 };
+
+        // Recorrer el arreglo
+        foreach (var e in estudiantes)
+        {
+            Console.WriteLine($"Nombre: {e.Nombre}, Edad: {e.Edad}, Promedio: {e.Promedio}");
+        }
+    }
+}
+```
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Estudiante:
+    nombre: str
+    edad: int
+    promedio: float
+
+# Crear instancias
+e1 = Estudiante("Ana", 20, 4.5)
+e2 = Estudiante("Luis", 22, 3.8)
+e3 = Estudiante("Marta", 19, 4.2)
+
+# Guardar en una lista (arreglo en Python)
+estudiantes = [e1, e2, e3]
+
+# Recorrer la lista
+for e in estudiantes:
+    print(f"Nombre: {e.nombre}, Edad: {e.edad}, Promedio: {e.promedio}")
+
+```
+
+* **Modificación.**
 Cambiar el promedio de un estudiante específico.
+```c#
+using System;
 
+public record Estudiante(string Nombre, int Edad, double Promedio);
 
-* Comparativa
+class Program
+{
+    static void Main(string[] args)
+    {
+        var e1 = new Estudiante("Ana", 20, 4.5);
+        var e2 = new Estudiante("Luis", 22, 3.8);
+        var e3 = new Estudiante("Marta", 19, 4.2);
+
+        Estudiante[] estudiantes = { e1, e2, e3 };
+
+        // Modificar el promedio de Ana
+        estudiantes[0] = estudiantes[0] with { Promedio = 5.0 };
+
+        foreach (var e in estudiantes)
+        {
+            Console.WriteLine(e);
+        }
+    }
+}
+```
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Estudiante:
+    nombre: str
+    edad: int
+    promedio: float
+
+e1 = Estudiante("Ana", 20, 4.5)
+e2 = Estudiante("Luis", 22, 3.8)
+e3 = Estudiante("Marta", 19, 4.2)
+
+estudiantes = [e1, e2, e3]
+
+# Modificar el promedio de Ana
+estudiantes[0].promedio = 5.0
+
+for e in estudiantes:
+    print(e)
+```
+
+* **Comparativa.**
 Documentar las diferencias de implementación en los lenguajes.
 
+| Aspecto             | C# (record)                     | Python (dataclass)                            |
+| ------------------- | ------------------------------- | --------------------------------------------- |
+| Definición          | `public record Estudiante(...)` | `@dataclass class Estudiante:`                |
+| Tipado              | Fuerte (tipos obligatorios)     | Dinámico (tipos opcionales pero recomendados) |
+| Creación de objetos | `new Estudiante(...)`           | `Estudiante(...)`                             |
+| Estructura de datos | Arreglo (`Estudiante[]`)        | Lista (`[]`)                                  |
+| Tamaño de colección | Fijo                            | Dinámico                                      |
+| Recorrido           | `foreach`                       | `for`                                         |
+| Acceso a datos      | `e.Nombre`                      | `e.nombre`                                    |
+| Mutabilidad         | Inmutable (por defecto)       | Mutable                                     |
+| Modificación        | `with { Propiedad = valor }`    | Asignación directa                            |
+| Sintaxis general    | Más estricta                    | Más simple y flexible                         |
 
+
+En C#, los record están diseñados para ser estructuras de datos inmutables, lo que significa que una vez creados, sus valores no deben cambiar. Por ello, cualquier modificación se realiza mediante la creación de una nueva instancia basada en la original, utilizando la expresión with.
+
+Por otro lado, en Python, las clases (incluyendo dataclass) son mutables por defecto, permitiendo modificar directamente los atributos de un objeto sin necesidad de crear una copia.
 
 ## Objetos (Clases e instancias)
 ### Actividades:
