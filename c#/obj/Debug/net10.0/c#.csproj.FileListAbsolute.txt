@@ -1,0 +1,15 @@
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.AssemblyInfo.cs
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.sourcelink.json
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\bin\Debug\net10.0\c#.exe
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\bin\Debug\net10.0\c#.deps.json
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\bin\Debug\net10.0\c#.runtimeconfig.json
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\bin\Debug\net10.0\c#.dll
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\bin\Debug\net10.0\c#.pdb
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.dll
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\refint\c#.dll
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.pdb
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\c#.genruntimeconfig.cache
+C:\Users\user\Documents\GARY( Yuris no chismosees aqui)\Universidad\IV SEMESTRE\EDAT\Actividad-Individual-Unidad-1-EDAT\c#\obj\Debug\net10.0\ref\c#.dll

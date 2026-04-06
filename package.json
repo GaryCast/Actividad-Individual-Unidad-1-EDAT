@@ -1,0 +1,22 @@
+{
+  "name": "actividad-individual-unidad-1-edat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "c": "cd ./c# && dotnet run .",
+    "py": "cd ./py && python main.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaryCast/Actividad-Individual-Unidad-1-EDAT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GaryCast/Actividad-Individual-Unidad-1-EDAT/issues"
+  },
+  "homepage": "https://github.com/GaryCast/Actividad-Individual-Unidad-1-EDAT#readme"
+}
