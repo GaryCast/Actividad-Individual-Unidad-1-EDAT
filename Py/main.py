@@ -1,38 +1,74 @@
 from dataclasses import dataclass
 
+# =========================
+# PUNTO 3: RECORD (dataclass)
+# =========================
 @dataclass
-class Estudiante:
+class EstudianteRecord:
     nombre: str
     edad: int
     promedio: float
 
-# =========================
-# 1. CREACIÓN DE INSTANCIAS
-# =========================
-e1 = Estudiante("Ana", 20, 4.5)
-e2 = Estudiante("Luis", 22, 3.8)
-e3 = Estudiante("Marta", 19, 4.2)
+
+def ejecutar_punto3():
+    print("=== PUNTO 3: RECORD (dataclass) ===")
+
+    e1 = EstudianteRecord("Ana", 20, 4.5)
+    e2 = EstudianteRecord("Luis", 22, 3.8)
+    e3 = EstudianteRecord("Marta", 19, 4.2)
+
+    estudiantes = [e1, e2, e3]
+
+    print("Lista original:")
+    for e in estudiantes:
+        print(e)
+
+    # Modificación directa (mutable)
+    estudiantes[0].promedio = 5.0
+
+    print("\nLista modificada:")
+    for e in estudiantes:
+        print(e)
+
 
 # =========================
-# 2. ARREGLO (LISTA)
+# PUNTO 4: CLASE
 # =========================
-estudiantes = [e1, e2, e3]
+class Estudiante:
+    def __init__(self, nombre, edad, promedio):
+        self.nombre = nombre
+        self.edad = edad
+        self.promedio = promedio
+
+    def mostrarInfo(self):
+        print(f"Nombre: {self.nombre}, Edad: {self.edad}, Promedio: {self.promedio}")
+
+    def setPromedio(self, nuevoPromedio):
+        self.promedio = nuevoPromedio
+
+
+def ejecutar_punto4():
+    print("\n=== PUNTO 4: OBJETOS (CLASES) ===")
+
+    e1 = Estudiante("Ana", 20, 4.5)
+    e2 = Estudiante("Luis", 22, 3.8)
+    e3 = Estudiante("Marta", 19, 4.2)
+
+    estudiantes = [e1, e2, e3]
+
+    print("Lista original:")
+    for e in estudiantes:
+        e.mostrarInfo()
+
+    estudiantes[0].setPromedio(5.0)
+
+    print("\nLista modificada:")
+    for e in estudiantes:
+        e.mostrarInfo()
+
 
 # =========================
-# 3. RECORRIDO INICIAL
+# EJECUCIÓN
 # =========================
-print("=== LISTA ORIGINAL ===")
-for e in estudiantes:
-    print(f"Nombre: {e.nombre}, Edad: {e.edad}, Promedio: {e.promedio}")
-
-# =========================
-# 4. MODIFICACIÓN
-# =========================
-estudiantes[0].promedio = 5.0
-
-# =========================
-# 5. RECORRIDO DESPUÉS DE MODIFICAR
-# =========================
-print("\n=== LISTA MODIFICADA ===")
-for e in estudiantes:
-    print(f"Nombre: {e.nombre}, Edad: {e.edad}, Promedio: {e.promedio}")
+ejecutar_punto3()
+ejecutar_punto4()

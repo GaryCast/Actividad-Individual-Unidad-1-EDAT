@@ -20,7 +20,7 @@ public record Estudiante(string Nombre, int Edad, double Promedio);
 ```
 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
-</p>
+
 
 ```python
 from dataclasses import dataclass
@@ -56,7 +56,7 @@ class Program
 ```
 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
-</p>
+
 
 ```python
 from dataclasses import dataclass
@@ -110,7 +110,6 @@ class Program
 ```
 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
-</p>
 
 ```python
 from dataclasses import dataclass
@@ -166,7 +165,7 @@ class Program
 }
 ```
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
-</p>
+
 
 ```python
 from dataclasses import dataclass
@@ -213,26 +212,100 @@ Por otro lado, en Python, las clases (incluyendo dataclass) son mutables por def
 
 ## Objetos (Clases e instancias)
 ### Actividades:
-* Declaración
+* **Declaración.**
 Definir una clase Estudiante con: nombre, edad, promedio y un método mostrarInfo.
 
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
 
-* Inicialización
+```c#
+public class Estudiante
+{
+    public string Nombre;
+    public int Edad;
+    public double Promedio;
+
+    public void MostrarInfo()
+```
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+
+
+```python
+class Estudiante:
+    def __init__(self, nombre, edad, promedio):
+        self.nombre = nombre
+        self.edad = edad
+        self.promedio = promedio
+
+    def mostrarInfo(self):
+        print(f"Nombre: {self.nombre}, Edad: {self.edad}, Promedio: {self.promedio}")
+
+    def setPromedio(self, nuevoPromedio):
+        self.promedio = nuevoPromedio
+```
+
+* **Inicialización.**
 Crear 3 instancias y almacenarlas en un arreglo/lista.
 
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
 
-* Recorrido
+```c#
+var e1 = new Estudiante("Ana", 20, 4.5);
+var e2 = new Estudiante("Luis", 22, 3.8);
+var e3 = new Estudiante("Marta", 19, 4.2);
+
+Estudiante[] estudiantes = { e1, e2, e3 };
+```
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+
+
+```python
+e1 = Estudiante("Ana", 20, 4.5)
+e2 = Estudiante("Luis", 22, 3.8)
+e3 = Estudiante("Marta", 19, 4.2)
+```
+* **Recorrido.**
 Llamar al método mostrarInfo para cada objeto.
 
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
 
-* Modificación
+```c#
+foreach (var e in estudiantes)
+{
+    e.MostrarInfo();
+}
+```
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+
+
+```python
+for e in estudiantes:
+    e.mostrarInfo()
+```
+
+* **Modificación.**
 Cambiar el promedio de un estudiante mediante un método setPromedio.
 
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
 
-* Comparativa
+```c#
+estudiantes[0].SetPromedio(5.0);
+```
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+
+
+```python
+estudiantes[0].setPromedio(5.0)
+```
+* **Comparativa.**
 Explicar la diferencia entre esta clase y un struct o record.
 
+La diferencia entre una clase y un struct o record se basa principalmente en el propósito y la forma en que manejan los datos. En C#, una clase es un tipo de referencia que no solo almacena información, sino que también permite definir comportamientos a través de métodos. Esto la hace ideal para representar objetos más complejos dentro de un sistema, donde además de datos se necesita lógica, como ocurre con entidades como clientes, ventas o vehículos.
 
+En cambio, un struct en C# es un tipo de valor que se utiliza para almacenar datos simples y ligeros. Su enfoque es más básico, ya que generalmente no se usa para modelar comportamientos complejos. Por otro lado, un record está pensado para representar datos de forma más segura e inmutable, facilitando la comparación entre objetos por su contenido. Es una opción moderna para manejar información estructurada sin necesidad de mucha lógica interna.
+
+En Python, la diferencia es un poco más flexible. Una clase puede cumplir tanto el rol de un objeto complejo como el de una estructura de datos simple, dependiendo de cómo se utilice. Sin embargo, cuando se quiere algo similar a un record de C#, se emplean las dataclass, que permiten definir estructuras de datos de manera más clara y automática. Aun así, estas siguen siendo clases, pero con menos necesidad de escribir código repetitivo.
+
+En resumen, las clases se utilizan cuando se necesita combinar datos y comportamiento, mientras que los struct y record (o dataclass en Python) se enfocan más en organizar y representar datos. La elección entre uno u otro depende del nivel de complejidad y del tipo de problema que se esté resolviendo.
 
 ## Diferencias entre Struct/Record y Objetos
 * Actividad teórico-práctica:
