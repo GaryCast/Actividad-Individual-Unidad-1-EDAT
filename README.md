@@ -316,8 +316,116 @@ Los estudiantes crearán una tabla comparativa con:
     - Uso en memoria (stack/heap)
     - Ejemplo en un lenguaje estático y uno dinámico
 
+
+
+| Aspecto                     | Struct / Record                                                            | Objetos (Clases)                                                        |
+| --------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Definición                  | Estructuras diseñadas principalmente para **almacenar datos** relacionados | Entidades que combinan **datos (atributos) y comportamiento (métodos)** |
+| Mutabilidad                 | `struct`: mutable / `record`: inmutable por defecto                        | Generalmente **mutables**                                               |
+| Tipado                      | Tipado **fuerte y explícito** (especialmente en C#)                        | C#: tipado fuerte / Python: tipado dinámico                             |
+| Uso en memoria (stack/heap) | `struct`: stack (valor) / `record`: heap (referencia)                      | Generalmente en el **heap** (referencia)                                |
+| Ejemplo (lenguaje estático) | **C# (record):**<br>`public record Est(string Nombre, int Edad);`          | **C# (class):**<br>`public class Est { public string Nombre; }`         |
+| Ejemplo (lenguaje dinámico) | **Python (dataclass):**<br>`@dataclass class Est: nombre:str`              | **Python (class):**<br>`class Est: def __init__(self,n): self.n=n`      |
+
+
 * Implementar el mismo problema con un struct/record y con un objeto para analizar ventajas y desventajas.
 
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
+
+Usando record (estructura de datos)
+
+```c#
+public record Estudiante(string Nombre, int Edad, double Promedio);
+
+var e1 = new Estudiante("Ana", 20, 4.5);
+var e2 = new Estudiante("Luis", 22, 3.8);
+
+// Mostrar datos
+Console.WriteLine(e1);
+
+// Modificar (crear nueva instancia)
+e2 = e2 with { Promedio = 4.0 };
+
+```
+
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
+
+Usando class (objeto)
+
+
+```c#
+public class Estudiante
+{
+    public string Nombre { get; set; }
+    public int Edad { get; set; }
+    public double Promedio { get; set; }
+
+    public void Mostrar()
+    {
+        Console.WriteLine($"Nombre: {Nombre}, Edad: {Edad}, Promedio: {Promedio}");
+    }
+}
+
+var e1 = new Estudiante { Nombre = "Ana", Edad = 20, Promedio = 4.5 };
+var e2 = new Estudiante { Nombre = "Luis", Edad = 22, Promedio = 3.8 };
+
+// Mostrar
+e1.Mostrar();
+
+// Modificar directamente
+e2.Promedio = 4.0;
+```
+
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+
+Usando dataclass (equivalente a record)
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Estudiante:
+    nombre: str
+    edad: int
+    promedio: float
+
+e1 = Estudiante("Ana", 20, 4.5)
+e2 = Estudiante("Luis", 22, 3.8)
+
+print(e1)
+
+# Modificación directa (mutable)
+e2.promedio = 4.0
+```
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+
+Usando class (objeto)
+
+```python
+class Estudiante:
+    def __init__(self, nombre, edad, promedio):
+        self.nombre = nombre
+        self.edad = edad
+        self.promedio = promedio
+
+    def mostrar(self):
+        print(f"Nombre: {self.nombre}, Edad: {self.edad}, Promedio: {self.promedio}")
+
+e1 = Estudiante("Ana", 20, 4.5)
+e2 = Estudiante("Luis", 22, 3.8)
+
+e1.mostrar()
+
+# Modificación
+e2.promedio = 4.0
+```
+Ventajas y Desventajas:
+
+Cuando se utiliza un record en C# o una dataclass en Python, el enfoque está completamente orientado a manejar datos de forma simple y organizada. Este tipo de estructuras reduce la cantidad de código necesario, ya que automáticamente gestionan aspectos como la inicialización y la representación de los datos. Además, en el caso de C#, los record ofrecen inmutabilidad por defecto, lo que ayuda a evitar errores al modificar información accidentalmente. Sin embargo, su principal limitación es que no están pensados para incluir lógica compleja o comportamientos avanzados.
+
+Por otro lado, las clases (objetos) ofrecen mucha más flexibilidad, ya que permiten combinar datos con métodos. Esto las hace ideales para modelar entidades más completas dentro de un sistema, donde no solo importa la información, sino también las acciones que se pueden realizar con ella. La desventaja es que requieren más código y una estructura más detallada, lo que puede hacer el desarrollo un poco más lento en comparación con record o dataclass.
+
+En términos generales, los record en C# y las dataclass en Python son más adecuados cuando se necesita representar datos de forma clara y sencilla, mientras que las clases son la mejor opción cuando el problema requiere lógica, validaciones o comportamientos adicionales. La elección entre uno y otro depende del nivel de complejidad del sistema y del rol que cumpla la entidad dentro del programa.
 
 ## Mini-proyecto integrador:
 Usar un arreglo de objetos que contengan un campo que sea a su vez una matriz.
