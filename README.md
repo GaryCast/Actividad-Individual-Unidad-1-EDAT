@@ -13,12 +13,15 @@ En cuanto al tipado y acceso a campos, tanto en C# como en Python se trabaja con
 ### Actividades:
 * **Declaración.** Definir un struct o record que contenga: nombre, edad, promedio.
 
-![alt text](image-2.png)
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
+
 ```c#
 public record Estudiante(string Nombre, int Edad, double Promedio);
 ```
 
-![alt text](image.png)
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+</p>
+
 ```python
 from dataclasses import dataclass
 
@@ -32,7 +35,8 @@ class Estudiante:
 * **Inicialización.**
 Crear 3 instancias con datos ficticios en los lenguajes dados (C# y Python).
 
-![alt text](image-3.png)
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
+
 ```c#
 public record Estudiante(string Nombre, int Edad, double Promedio);
 
@@ -51,7 +55,9 @@ class Program
 }
 ```
 
-![alt text](image.png)
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+</p>
+
 ```python
 from dataclasses import dataclass
 
@@ -75,7 +81,8 @@ print(e3)
 * **Recorrido.**
 Guardar las instancias en un arreglo y recorrerlo mostrando los datos.
 
-![alt text](image-4.png)
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
+
 ```c#
 using System;
 
@@ -102,7 +109,9 @@ class Program
 }
 ```
 
-![alt text](image.png)
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+</p>
+
 ```python
 from dataclasses import dataclass
 
@@ -129,7 +138,8 @@ for e in estudiantes:
 * **Modificación.**
 Cambiar el promedio de un estudiante específico.
 
-![alt text](image-1.png)
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
+
 ```c#
 using System;
 
@@ -155,7 +165,9 @@ class Program
     }
 }
 ```
-![alt text](image.png)
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+</p>
+
 ```python
 from dataclasses import dataclass
 
@@ -242,3 +254,8 @@ Implementar la solución en dos lenguajes distintos para comparar diferencias si
 
 ## ACTIVIDAD PRÁCTICA:
 Modificar el ejercicio asignado en la actividad Protocolo Individual Unidad 1 (ver lista de asignación de ejercicios) y aplicar los conceptos de Objetos, Struct y Récord como elementos (items) guardados en los arreglos o matrices. (Java) opcional y mejor calificación si lo hace en otro de los lenguajes indicados en esta actividad.
+
+
+ 
+
+
