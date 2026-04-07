@@ -427,16 +427,214 @@ Por otro lado, las clases (objetos) ofrecen mucha más flexibilidad, ya que perm
 
 En términos generales, los record en C# y las dataclass en Python son más adecuados cuando se necesita representar datos de forma clara y sencilla, mientras que las clases son la mejor opción cuando el problema requiere lógica, validaciones o comportamientos adicionales. La elección entre uno y otro depende del nivel de complejidad del sistema y del rol que cumpla la entidad dentro del programa.
 
-## Mini-proyecto integrador:
-Usar un arreglo de objetos que contengan un campo que sea a su vez una matriz.
+
+## ACTIVIDAD PRÁCTICA: Mini-proyecto integrador:
+Modificar el ejercicio asignado en la actividad Protocolo Individual Unidad 1 (ver lista de asignación de ejercicios) y aplicar los conceptos de Objetos, Struct y Récord como elementos (items) guardados en los arreglos o matrices. (Java) opcional y mejor calificación si lo hace en otro de los lenguajes indicados en esta actividad.
 
 Implementar la solución en dos lenguajes distintos para comparar diferencias sintácticas y de paradigma.
 
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
 
-## ACTIVIDAD PRÁCTICA:
-Modificar el ejercicio asignado en la actividad Protocolo Individual Unidad 1 (ver lista de asignación de ejercicios) y aplicar los conceptos de Objetos, Struct y Récord como elementos (items) guardados en los arreglos o matrices. (Java) opcional y mejor calificación si lo hace en otro de los lenguajes indicados en esta actividad.
+ ```c#
+ using System;
+
+// =========================
+// RECORD (Contraseña)
+// =========================
+public record Password(string Valor, bool EsValida);
+
+// =========================
+// STRUCT (Configuración)
+// =========================
+public struct Configuracion
+{
+    public int Longitud;
+}
+
+// =========================
+// CLASE (Usuario)
+// =========================
+public class Usuario
+{
+    public string Nombre { get; set; } = "";
+    public Password[,] HistorialPasswords { get; set; } = new Password[0, 0];
+}
+
+// =========================
+// GENERADOR DE CONTRASEÑAS
+// =========================
+public class Generador
+{
+    private static Random random = new Random();
+
+    public static string Generar(int longitud)
+    {
+        string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+        string password = "";
+
+        for (int i = 0; i < longitud; i++)
+        {
+            password += caracteres[random.Next(caracteres.Length)];
+        }
+
+        return password;
+    }
+
+    public static bool Validar(string password)
+    {
+        bool mayus = false, minus = false, num = false, simb = false;
+
+        foreach (char c in password)
+        {
+            if (char.IsUpper(c)) mayus = true;
+            else if (char.IsLower(c)) minus = true;
+            else if (char.IsDigit(c)) num = true;
+            else simb = true;
+        }
+
+        return mayus && minus && num && simb;
+    }
+}
+
+// =========================
+// PROGRAMA PRINCIPAL
+// =========================
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("=== MINI PROYECTO: USUARIOS Y CONTRASEÑAS ===");
+
+        Configuracion config = new Configuracion { Longitud = 10 };
+
+        Usuario[] usuarios = new Usuario[2];
+
+        // Creación de usuarios y generación de contraseñas
+        for (int i = 0; i < usuarios.Length; i++)
+        {
+            usuarios[i] = new Usuario
+            {
+                Nombre = "Usuario " + (i + 1),
+                HistorialPasswords = new Password[2, 2]
+            };
+
+            for (int j = 0; j < 2; j++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+                    string pass;
+
+                    do
+                    {
+                        pass = Generador.Generar(config.Longitud);
+                    } while (!Generador.Validar(pass));
+
+                    usuarios[i].HistorialPasswords[j, k] = new Password(pass, true);
+                }
+            }
+        }
+
+        // Mostrar información
+        foreach (var u in usuarios)
+        {
+            Console.WriteLine($"\nUsuario: {u.Nombre}");
+
+            foreach (var p in u.HistorialPasswords)
+            {
+                Console.WriteLine($"Password: {p.Valor} | Válida: {p.EsValida}");
+            }
+        }
+    }
+}
+```
+Este código implementa un mini-proyecto en C# donde se generan y validan contraseñas para varios usuarios. Se utilizan diferentes estructuras de datos: un record para representar contraseñas de forma inmutable, un struct para definir la configuración (longitud de la contraseña) y una class para modelar a los usuarios.
+
+El programa crea un arreglo de usuarios, donde cada uno contiene una matriz bidimensional de contraseñas. Estas contraseñas se generan automáticamente y se validan para asegurar que cumplan con ciertos criterios (mayúsculas, minúsculas, números y símbolos). Finalmente, se recorre la estructura completa para mostrar la información en consola, evidenciando el uso de arreglos y matrices anidadas.
+
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40"/>
+
+```python
+import random
+import string
+
+# =========================
+# RECORD (equivalente en Python)
+# =========================
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Password:
+    valor: str
+    es_valida: bool
 
 
- 
+# =========================
+# STRUCT (equivalente)
+# =========================
+@dataclass
+class Configuracion:
+    longitud: int
 
 
+# =========================
+# CLASE (Usuario)
+# =========================
+class Usuario:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.historial_passwords = [[None for _ in range(2)] for _ in range(2)]
+
+
+# =========================
+# GENERADOR DE CONTRASEÑAS
+# =========================
+class Generador:
+    @staticmethod
+    def generar(longitud):
+        caracteres = string.ascii_letters + string.digits + "!@#$%^&*()"
+        return ''.join(random.choice(caracteres) for _ in range(longitud))
+
+    @staticmethod
+    def validar(password):
+        mayus = any(c.isupper() for c in password)
+        minus = any(c.islower() for c in password)
+        num = any(c.isdigit() for c in password)
+        simb = any(not c.isalnum() for c in password)
+
+        return mayus and minus and num and simb
+
+
+# =========================
+# PROGRAMA PRINCIPAL
+# =========================
+def main():
+    print("=== MINI PROYECTO: USUARIOS Y CONTRASEÑAS ===")
+
+    config = Configuracion(longitud=10)
+
+    usuarios = [Usuario(f"Usuario {i+1}") for i in range(2)]
+
+    # Generación de contraseñas
+    for usuario in usuarios:
+        for i in range(2):
+            for j in range(2):
+                while True:
+                    password = Generador.generar(config.longitud)
+                    if Generador.validar(password):
+                        usuario.historial_passwords[i][j] = Password(password, True)
+                        break
+
+    # Mostrar información
+    for usuario in usuarios:
+        print(f"\nUsuario: {usuario.nombre}")
+        for fila in usuario.historial_passwords:
+            for p in fila:
+                print(f"Password: {p.valor} | Válida: {p.es_valida}")
+
+
+# Ejecutar programa
+if __name__ == "__main__":
+    main()
+
+```
+La versión en Python mantiene la misma lógica del programa en C#, pero adaptada a un lenguaje dinámico. Se utilizan dataclasses para simular el comportamiento de record y struct, mientras que las listas permiten representar arreglos y matrices de forma flexible.
