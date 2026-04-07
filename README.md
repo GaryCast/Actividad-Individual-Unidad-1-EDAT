@@ -12,10 +12,13 @@ En cuanto al tipado y acceso a campos, tanto en C# como en Python se trabaja con
 
 ### Actividades:
 * **Declaración.** Definir un struct o record que contenga: nombre, edad, promedio.
+
+![alt text](image-2.png)
 ```c#
 public record Estudiante(string Nombre, int Edad, double Promedio);
 ```
 
+![alt text](image.png)
 ```python
 from dataclasses import dataclass
 
@@ -29,6 +32,7 @@ class Estudiante:
 * **Inicialización.**
 Crear 3 instancias con datos ficticios en los lenguajes dados (C# y Python).
 
+![alt text](image-3.png)
 ```c#
 public record Estudiante(string Nombre, int Edad, double Promedio);
 
@@ -46,6 +50,8 @@ class Program
     }
 }
 ```
+
+![alt text](image.png)
 ```python
 from dataclasses import dataclass
 
@@ -68,6 +74,8 @@ print(e3)
 
 * **Recorrido.**
 Guardar las instancias en un arreglo y recorrerlo mostrando los datos.
+
+![alt text](image-4.png)
 ```c#
 using System;
 
@@ -93,6 +101,8 @@ class Program
     }
 }
 ```
+
+![alt text](image.png)
 ```python
 from dataclasses import dataclass
 
@@ -118,6 +128,8 @@ for e in estudiantes:
 
 * **Modificación.**
 Cambiar el promedio de un estudiante específico.
+
+![alt text](image-1.png)
 ```c#
 using System;
 
@@ -143,6 +155,7 @@ class Program
     }
 }
 ```
+![alt text](image.png)
 ```python
 from dataclasses import dataclass
 
