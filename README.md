@@ -218,7 +218,7 @@ Definir una clase Estudiante con: nombre, edad, promedio y un método mostrarInf
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="40"/>
 
 ```c#
-    public Estudiante(string nombre, int edad, double promedio)
+public Estudiante(string nombre, int edad, double promedio)
     {
         Nombre = nombre;
         Edad = edad;
